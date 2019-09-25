@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?teipublisher template="mv.html" odd="monumenta.odd" view="page"?><?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Monumenta Vaticana Poloniae</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>Anna Zajchowska-Bołtromiuk</publisher>
+                <date>2019-09-09</date>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc xml:id="RL87">
+                    <msIdentifier>
+                        <country>Vatican</country>
+                        <settlement>Archivio Segreto Vaticano</settlement>
+                        <!-- library where the manuscript is-->
+                        <repository> Reg. Lat. 87</repository>
+                        <!-- lieu de conservation -->
+                    </msIdentifier>
+                </msDesc>
+                <listWit>
+                    <witness>
+                        <ptr xml:id="RL_87" corresp="#RL97"/> ASV, RL 87, f. 190v-191r (or. f.
+                        CXC-CXCI)</witness>
+                </listWit>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <abstract xml:lang="pl">
+                <p>Papież Bonifacy IX udziela Janowi synowi Jana z Cznarina pozwolenia na
+                    pięcioletni pobyt poza klasztorem w celu odbycia studiów.</p>
+            </abstract>
+            <textClass>
+                <keywords>
+                    <term>Vite ac morum (religionis zelus)</term>
+                </keywords>
+            </textClass>
+            <particDesc>
+                <listPerson>
+                    <!-- different lists authorities - person -->
+                    <person xml:id="Bonifacius">
+                        <persName>Bonifacy IX</persName>
+                        <idno type="wikidata">Q165561</idno>
+                        <note>papież, 1389–1404</note>
+                    </person>
+                    <person xml:id="IohIohdCznarin">
+                        <persName type="beneficjent">Iohannes Iohannis de Cznarin</persName>
+                        <note>kanonik kościoła NMP na Piasku we Wrocławiu</note>
+                        <!-- tu ujednolicona wersja imienia -->
+                    </person>
+                    <person xml:id="NdB">
+                        <persName type="personel">Nicolaus de Benevento</persName>
+                        <note>pisarz papieski</note>
+                    </person>
+                    <person xml:id="AdP">
+                        <persName type="personel">Antonius de Portugruario</persName>
+                        <note>kanonik kościoła NMP na Piasku we Wrocławiu</note>
+                        <!-- tu ujednolicona wersja imienia -->
+                    </person>
+                </listPerson>
+            </particDesc>
+            <settingDesc>
+                <listPlace>
+                    <place xml:id="BMVArena">
+                        <!-- tag named country, cities, @type='inhabitant' -->
+                        <placeName>Klasztor kanoników regularnych NMP na Piasku</placeName>
+                        <location>
+                            <placeName ref="#Vratislavia">Wrocław</placeName>
+                        </location>
+                    </place>
+                    <place xml:id="Vratislavia">
+                        <!-- tag named country, cities, @type='inhabitant' -->
+                        <placeName>Wrocław</placeName>
+                    </place>
+                    <place xml:id="Rzym">
+                        <!-- tag named country, cities, @type='inhabitant' -->
+                        <placeName>Rzym</placeName>
+                    </place>
+                </listPlace>
+            </settingDesc>
+        </profileDesc>
+        <encodingDesc>
+            <variantEncoding method="parallel-segmentation" location="internal"/>
+        </encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+        <pb facs="190v.jpg" n="190v"/>
+            <div type="pisarz">
+                <p>
+                    <persName ref="#AdP"> Antonius) de Portug(ruario)</persName>
+                </p>
+            </div>
+            <div type="bulla">
+                <div type="adres">
+                    <p>
+                        <persName ref="#Bonifacius">Bonifacius</persName> etc., dilecto filio
+                            <persName ref="#IohIohdCznarin">Iohannis Iohannis de Cznarin</persName>,
+                        canonico <placeName ref="#BMVArena"> monasterii Beate Marie Virginis
+                            in Arena prope <placeName>Wratislauiam</placeName>, Ordinis sancti
+                            Augustini</placeName>, <app>
+                                <lem>
+                                <add place="lewy margines">salutem</add>
+                            </lem>
+                                                    </app> etc.</p>
+                </div>
+                <div type="arenga">
+                    <p>Religionis zelus, vite ac morum honestas aliaque laudabilia probitatis et
+                        virtutum merita, super quibus apud nos fidedigno commendaris testimonio, nos
+                        inducunt, ut ea <app>
+                            <lem>
+                                <add place="lewy margines">tibi favorabiliter concedamus, que tuis</add>
+                            </lem>
+                            </app> commoditatibus conspicimus oportuna. </p>
+                </div>
+                <div type="narracja">
+                    <p>Exhibita siquidem nobis nuper pro parte tua peticio continebat, quod tu in
+                            <placeName ref="#BMVArena">monasterio Beate Marie Virginis in Arena
+                            prope <placeName ref="#Vratislavia">Wratislauiam</placeName> Ordinis
+                            Sancti Augustini</placeName>, cuius canonicus professus existis, ex
+                        certis causis et tui animi quiete remanere non possis ac cupias te ad
+                        studium in loco, ubi illud vigeat generale, transferre vel ad servicium
+                        alicuius religiosi aut secularis domini ponere, nec queas tui abbatis dicti
+                        monasterii ad hoc licenciam obtinere, pro parte tua nobis fuit humiliter
+                        supplicatum, ut tibi, quod hoc facere possis, licenciam concedere de
+                        benignitate apostolica dignaremur.</p>
+                </div>
+                <div type="dyspozycja">
+                    <p>Nos vocis tuis in hac parte favorabiliter annuentes tibi, ut ad studium
+                        transferre ac ad servicium huiusmodi ad quinquennium a data presencium
+                        computandum te ponere valeas, tui abbatis dicti monasterii vel alterius
+                        cuiuscumque super hoc licencia non requisite nec habita, constitucionibus
+                        apostolicis ac statutis <pb facs="191r.jpg" n="191r"/> et consuetudinibus ordinis et
+                        monasterii predictorum et aliis non obstantibus quibuscumque auctoritate
+                        apostolica tenore presencium indulgemus.</p>
+                </div>
+                <div type="sankcja">
+                    <p>Nulli ergo etc. nostre concessionis infringere etc. Si quis autem etc. </p>
+                </div>
+                <div type="datacja">
+                    <p>Datum <placeName ref="#Rzym">Rome</placeName> apud Sanctum Petrum, tercio
+                        idus novembris, anno duodecimo. </p>
+                </div>
+                <div type="subskrypcja">
+                    <p> <persName ref="#NdB">
+                            <handShift/>N(icolaus). XVIII. de
+                            Ben(event)to.</persName>
+                    </p>
+                </div>
+            </div>
+        </body>
+    </text>
+</TEI>
