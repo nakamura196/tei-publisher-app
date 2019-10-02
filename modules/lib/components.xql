@@ -107,7 +107,7 @@ return
             else
                 $xml?data
         let $data :=
-            if (empty($xpath) and $highlight and exists(session:get-attribute($config:session-prefix || ".query"))) then
+            if ($highlight and exists(session:get-attribute($config:session-prefix || ".query"))) then
                 query:expand($xml?config, $mapped)[1]
             else
                 $mapped
