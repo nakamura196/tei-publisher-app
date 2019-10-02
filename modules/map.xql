@@ -46,9 +46,9 @@ declare function mapping:barum-book($root as element(), $userParams as map(*)) {
 declare function mapping:prefix-translation($root as element(), $userParams as map(*)) {
     let $sourcePrefix := ($userParams?sourcePrefix, 's')[1]
     let $targetPrefix := ($userParams?targetPrefix, 't1')[1]
-   
+
     let $id := $root/@xml:id
-    
+
     let $node := root($root)/id(translate($id, $sourcePrefix, $targetPrefix))
 
     return
@@ -57,7 +57,7 @@ declare function mapping:prefix-translation($root as element(), $userParams as m
 
 (:~  mapping trying to find a node in the same relation to the base of translation as current node to the base of transcription  ~:)
 declare function mapping:offset-translation($root as element(), $userParams as map(*)) {
-    
+
 let $language := ($userParams?language, 'en')[1]
 
 let $node-id := util:node-id($root)
@@ -67,10 +67,25 @@ let $translation-root := util:node-id(root($root)//tei:text[@type='translation']
 
 let $offset := substring-after($node-id, $source-root)
 
-let $node := util:node-by-id(root($root), $translation-root || $offset) 
+let $node := util:node-by-id(root($root), $translation-root || $offset)
 
-return 
+return
     $node
 
 };
 
+(:~  mapping match from dependant to main data section,
+e.g. from translation to transcription via prefix translation;
+
+where no mapping is necessary just return the same node
+  ~:)
+declare function mapping:map-match($div as element()?) {
+  (:    let $sPrefix := root($div)//tei:text[@type='source']/@xml:lang:)
+  (:    let $cPrefix := substring-before($div/@xml:id, '.'):)
+  (:    :)
+  (:    return :)
+  (:        if ($cPrefix and $cPrefix != $sPrefix) then :)
+  (:            root($div)/id(replace($div/@xml:id, '^' || $cPrefix, $sPrefix)):)
+  (:        else:)
+              $div
+};

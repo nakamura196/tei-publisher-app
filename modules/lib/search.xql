@@ -29,6 +29,7 @@ import module namespace query="http://www.tei-c.org/tei-simple/query" at "../que
 import module namespace kwic="http://exist-db.org/xquery/kwic" at "resource:org/exist/xquery/lib/kwic.xql";
 import module namespace tpu="http://www.tei-c.org/tei-publisher/util" at "util.xql";
 import module namespace config="http://www.tei-c.org/tei-simple/config" at "../config.xqm";
+import module namespace mapping="http://www.tei-c.org/tei-simple/components/map" at "../map.xql";
 
 (:~
 : Execute the query. The search results are not output immediately. Instead they
@@ -117,25 +118,21 @@ function search:show-hits($node as node()*, $model as map(*), $start as xs:integ
             {
                 for $match in subsequence($expanded//exist:match, 1, 5)
                 let $matchId := $match/../@exist:id
-                let $docLink :=
+                let $chunk :=
                     if ($config?view = "page") then
-                        (: first check if there's a pb in the expanded section before the match :)
-                        let $pbBefore := $match/preceding::tei:pb[1]
-                        return
-                            if ($pbBefore) then
-                                $pbBefore/@exist:id
-                            else
-                                (: no: locate the element containing the match in the source document :)
+                                (: locate the element containing the match in the source document :)
                                 let $contextNode := util:node-by-id($hit, $matchId)
                                 (: and get the pb preceding it :)
                                 let $page := $contextNode/preceding::tei:pb[1]
                                 return
                                     if ($page) then
-                                        util:node-id($page)
+                                        $page
                                     else
-                                        util:node-id($div)
+                                        $div
                     else
-                        util:node-id($div)
+                        $div
+
+                let $docLink := util:node-id(mapping:map-match($chunk))
                 let $config := <config width="60" table="no" link="{$docId}?root={$docLink}&amp;action=search&amp;view={$config?view}&amp;odd={$config?odd}#{$matchId}"/>
                 return
                     kwic:get-summary($expanded, $match, $config)
