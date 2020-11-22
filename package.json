@@ -16,6 +16,7 @@
   },
   "license": "GPL-3.0",
   "dependencies": {
-    "@teipublisher/pb-components": "^0.9.37"
+    "@teipublisher/pb-extension-template": "git+https://github.com/nakamura196/pb-extension-template.git#master",
+    "leaflet": "^1.7.1"
   }
 }

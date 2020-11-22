@@ -33,6 +33,12 @@ xmldb:create-collection($target || "/data", "playground"),
 sm:chmod(xs:anyURI($target || "/data/playground"), "rwxrwxr-x"),
 sm:chown(xs:anyURI($target || "/data/playground"), "tei-demo"),
 sm:chgrp(xs:anyURI($target || "/data/playground"), "tei"),
+
+xmldb:create-collection($target || "/data", "bbp"),
+sm:chmod(xs:anyURI($target || "/data/bbp"), "rwxrwxr-x"),
+(:sm:chown(xs:anyURI($target || "/data/bbp"), "tei-demo"),:)
+sm:chgrp(xs:anyURI($target || "/data/bbp"), "tei"),
+
 xmldb:create-collection($target || "/data", "temp"),
 sm:chmod(xs:anyURI($target || "/data/temp"), "rwxrwxr-x"),
 sm:chown(xs:anyURI($target || "/data/temp"), "tei"),
